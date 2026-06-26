@@ -1,69 +1,205 @@
-from pathlib import Path
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>建筑结构数字孪生介绍</title>
 
-src = Path("/mnt/data/index.html").read_text(encoding="utf-8")
+<style>
 
-old = """<div class="box">
+body{
+    font-family:"Microsoft YaHei";
+    margin:40px;
+    background:#f5f5f5;
+}
+
+.box{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:10px;
+}
+
+h1{
+    color:#0066cc;
+}
+
+h2{
+    color:#333;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+<h1>建筑结构数字孪生系统</h1>
+
+<p>
+本系统基于三维模型建立建筑数字孪生场景，
+实现建筑结构信息可视化展示。
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h2>结构信息</h2>
+
+<table>
+
+<tr>
+<td>结构类型</td>
+<td>钢筋混凝土结构</td>
+</tr>
+
+
+<tr>
+<td>主要构件</td>
+<td>结构柱、结构梁、屋顶</td>
+</tr>
+
+
+<tr>
+<td>建筑材料</td>
+<td>钢筋混凝土、大理石饰面</td>
+</tr>
+
+
+</table>
+
+</div>
+
+
+
+
+<div class="box">
+
+<h2>构件介绍</h2>
+
+
+<p>
+结构梁：
+承担楼板荷载，并将荷载传递至结构柱。
+</p>
+
+
+<p>
+结构柱：
+承担竖向荷载，保证建筑整体稳定。
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
 
 <h2>监测数据</h2>
 
-<p>
-温度：26.46℃
-</p >
-
-<p>
-湿度：54.99%RH
-</p >
-
-
-</div>"""
-
-new = """<div class="box">
-
-<h2>监测数据</h2>
 
 <p>
 温度：
 <span id="temperature">正在读取...</span>
-</p >
+</p>
+
 
 <p>
 湿度：
 <span id="humidity">正在读取...</span>
-</p >
+</p>
 
-</div>"""
 
-src = src.replace(old, new)
+</div>
 
-insert = """
+
+
+
+
+
+<div class="box">
+
+<h2>三维模型说明</h2>
+
+
+<p>
+通过数字孪生平台实现模型查看、
+信息查询和建筑状态管理。
+</p>
+
+
+</div>
+
+
+
+
+
+
 <script>
+
+
+// 模拟实时温湿度数据
 
 function updateSensor(){
 
-    // 模拟实时温湿度数据
-    let temperature = (25 + Math.random()*5).toFixed(2);
-    let humidity = (50 + Math.random()*10).toFixed(2);
+
+    let temperature =
+    (25 + Math.random()*5).toFixed(2);
+
+
+    let humidity =
+    (50 + Math.random()*10).toFixed(2);
+
+
 
     document.getElementById("temperature").innerHTML =
     temperature + "℃";
 
+
+
     document.getElementById("humidity").innerHTML =
     humidity + "%RH";
+
+
 }
 
 
-// 页面打开时读取
+
+// 页面打开立即读取
+
 updateSensor();
 
-// 每5秒更新一次
+
+
+// 每5秒自动更新
+
 setInterval(updateSensor,5000);
 
+
+
 </script>
-"""
 
-src = src.replace("</body>", insert + "\n</body>")
 
-out = Path("/mnt/data/index_realtime.html")
-out.write_text(src, encoding="utf-8")
 
-str(out)
+</body>
+
+</html>
