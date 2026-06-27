@@ -1,205 +1,114 @@
+大麦: 06-27 11:19:39
+[文件]
+
+大麦: 06-27 16:52:17
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>建筑结构数字孪生介绍</title>
-
+<title>建筑环境模拟展示</title>
 <style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+    }
 
-body{
-    font-family:"Microsoft YaHei";
-    margin:40px;
-    background:#f5f5f5;
-}
+    .title{
+        padding:20px;
+        font-size:22px;
+        font-weight:bold;
+        background:#111827;
+    }
 
-.box{
-    background:white;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:10px;
-}
+    .container{
+        display:flex;
+        height:100vh;
+    }
 
-h1{
-    color:#0066cc;
-}
+    .left{
+        width:300px;
+        background:#1f2937;
+        padding:20px;
+    }
 
-h2{
-    color:#333;
-}
+    .card{
+        background:#111827;
+        padding:15px;
+        margin-bottom:15px;
+        border-radius:10px;
+    }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-}
+    .right{
+        flex:1;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#0b1220;
+    }
 
-td{
-    border:1px solid #ddd;
-    padding:10px;
-}
+    img{
+        max-width:90%;
+        max-height:90%;
+        border-radius:10px;
+        box-shadow:0 0 20px rgba(0,0,0,0.5);
+    }
 
+    .label{
+        font-size:14px;
+        color:#9ca3af;
+    }
+
+    .value{
+        font-size:18px;
+        margin-top:5px;
+    }
 </style>
-
 </head>
-
 
 <body>
 
+<div class="title">建筑环境模拟可视化系统</div>
 
-<div class="box">
+<div class="container">
 
-<h1>建筑结构数字孪生系统</h1>
+    <!-- 左侧数据 -->
+    <div class="left">
 
-<p>
-本系统基于三维模型建立建筑数字孪生场景，
-实现建筑结构信息可视化展示。
-</p>
+        <div class="card">
+            <div class="label">温度</div>
+            <div class="value">26.46 °C</div>
+        </div>
 
-</div>
+        <div class="card">
+            <div class="label">湿度</div>
+            <div class="value">54.99 %RH</div>
+        </div>
 
+        <div class="card">
+            <div class="label">PM2.5</div>
+            <div class="value">45 μg/m³</div>
+        </div>
 
+        <div class="card">
+            <div class="label">PM10</div>
+            <div class="value">25 μg/m³</div>
+        </div>
 
-<div class="box">
+        <div class="card">
+            <div class="label">环境状态</div>
+            <div class="value">模拟运行中</div>
+        </div>
 
-<h2>结构信息</h2>
+    </div>
 
-<table>
-
-<tr>
-<td>结构类型</td>
-<td>钢筋混凝土结构</td>
-</tr>
-
-
-<tr>
-<td>主要构件</td>
-<td>结构柱、结构梁、屋顶</td>
-</tr>
-
-
-<tr>
-<td>建筑材料</td>
-<td>钢筋混凝土、大理石饰面</td>
-</tr>
-
-
-</table>
-
-</div>
-
-
-
-
-<div class="box">
-
-<h2>构件介绍</h2>
-
-
-<p>
-结构梁：
-承担楼板荷载，并将荷载传递至结构柱。
-</p>
-
-
-<p>
-结构柱：
-承担竖向荷载，保证建筑整体稳定。
-</p>
-
+    <!-- 右侧图片 -->
+    <div class="right">
+        <img src="IMG.jpg" alt="建筑模型">
+    </div>
 
 </div>
-
-
-
-
-
-<div class="box">
-
-<h2>监测数据</h2>
-
-
-<p>
-温度：
-<span id="temperature">正在读取...</span>
-</p>
-
-
-<p>
-湿度：
-<span id="humidity">正在读取...</span>
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="box">
-
-<h2>三维模型说明</h2>
-
-
-<p>
-通过数字孪生平台实现模型查看、
-信息查询和建筑状态管理。
-</p>
-
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-// 模拟实时温湿度数据
-
-function updateSensor(){
-
-
-    let temperature =
-    (25 + Math.random()*5).toFixed(2);
-
-
-    let humidity =
-    (50 + Math.random()*10).toFixed(2);
-
-
-
-    document.getElementById("temperature").innerHTML =
-    temperature + "℃";
-
-
-
-    document.getElementById("humidity").innerHTML =
-    humidity + "%RH";
-
-
-}
-
-
-
-// 页面打开立即读取
-
-updateSensor();
-
-
-
-// 每5秒自动更新
-
-setInterval(updateSensor,5000);
-
-
-
-</script>
-
-
 
 </body>
-
 </html>
